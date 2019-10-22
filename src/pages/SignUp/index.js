@@ -13,6 +13,7 @@ export default function SignUp() {
   function handleSubmit(data) {
 
   }
+
   return (
     <>
       <img src={logo} alt="GoBarber" />
