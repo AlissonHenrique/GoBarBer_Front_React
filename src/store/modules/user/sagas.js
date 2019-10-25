@@ -1,3 +1,25 @@
-import { all } from 'redux-saga/effects';
+import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
+import api from '../../../services/api';
+import { updateProfileSuccess, updateProfileFailure } from './actions';
 
-export default all([])
+export function* updateProfile({ payload }) {
+  try {
+    const { nome, email, avatar_id, ...rest } = payload.data;
+
+    const profile = {
+      nome,
+      email,
+      avatar_id,
+      ...(rest.OldPassword ? rest : {}),
+    };
+    const response = yield call(api.put, 'users', profile);
+    toast.success('Perfil atualizado');
+    yield put(updateProfileSuccess(response.data));
+  } catch (err) {
+    toast.success('Erro ao atualizar perfil');
+    yield put(updateProfileFailure());
+  }
+}
+
+export default all([takeLatest('@user/UPDATE_PROFILE_REQUES', updateProfile)]);
