@@ -4,12 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Container } from './styles';
 import { updateProfileRequest } from '../../store/modules/user/actions';
 import AvatarInput from './AvatarInput';
+import { signOut } from '../../store/modules/auth/actions';
 
 export default function Profile() {
   const dispatch = useDispatch();
   const profile = useSelector(state => state.user.profile);
   function handleSubmit(data) {
     dispatch(updateProfileRequest(data));
+  }
+  function handleSignOut() {
+    dispatch(signOut);
   }
   return (
     <Container>
@@ -31,7 +35,9 @@ export default function Profile() {
         />
         <button type="submit">Atualizar perfil</button>
       </Form>
-      <button type="submit">Sair do Gobarber</button>
+      <button type="submit" onClick={handleSignOut}>
+        Sair do Gobarber
+      </button>
     </Container>
   );
 }
