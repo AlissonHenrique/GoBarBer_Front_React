@@ -1,30 +1,43 @@
 import React from 'react';
-import { useDispatch } from 'react-redux'
-import { signInRequest } from '../../store/modules/auth/actions'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.svg';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
+import logo from '~/assets/logo.svg';
+
+import { signUpRequest } from '~/store/modules/auth/actions';
+
 const schema = Yup.object().shape({
-  name: Yup.string('Insira um email válido').required('O nom é obrigatório'),
-  email: Yup.string().email('Insira um email válido').required('O email é obrigatório'),
-  password: Yup.string(6, 'a senha deve ter no mínimo 6 carateres').min().required('A senha é obrigatório'),
-})
+  name: Yup.string().required('O nome é obrigatório'),
+  email: Yup.string()
+    .email('Insira um e-mail válido')
+    .required('O e-mail é obrigatório'),
+  password: Yup.string()
+    .min(6, 'No mínimo 6 caracteres')
+    .required('A senha é obrigatória'),
+});
 
 export default function SignUp() {
   const dispatch = useDispatch();
+
   function handleSubmit({ name, email, password }) {
-    dispatch(signInRequest(name, email, password))
+    dispatch(signUpRequest(name, email, password));
   }
 
   return (
     <>
       <img src={logo} alt="GoBarber" />
+
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input type="text" name="name" placeholder="Nome Completo" />
-        <Input type="email" name="email" placeholder="Seu email" />
-        <Input type="password" name="password" placeholder="Sua senha" />
+        <Input name="name" placeholder="Nome completo" />
+        <Input name="email" type="email" placeholder="Seu e-mail" />
+        <Input
+          name="password"
+          type="password"
+          placeholder="Sua senha secreta"
+        />
+
         <button type="submit">Criar conta</button>
         <Link to="/">Já tenho login</Link>
       </Form>

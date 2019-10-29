@@ -10,5 +10,6 @@ export default reducers => {
     },
     reducers
   );
+
   return persistedReducer;
 };

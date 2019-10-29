@@ -16,6 +16,7 @@ export const Container = styled.div`
       border: 0;
       background: none;
     }
+
     strong {
       color: #fff;
       font-size: 24px;
@@ -30,10 +31,12 @@ export const Container = styled.div`
     margin-top: 30px;
   }
 `;
+
 export const Time = styled.li`
   padding: 20px;
   border-radius: 4px;
   background: #fff;
+
   opacity: ${props => (props.past ? 0.6 : 1)};
 
   strong {

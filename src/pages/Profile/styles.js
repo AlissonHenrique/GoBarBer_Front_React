@@ -23,18 +23,21 @@ export const Container = styled.div`
         color: rgba(255, 255, 255, 0.7);
       }
     }
+
     span {
-      color: #f64c75;
+      color: #fb6f91;
       align-self: flex-start;
       margin: 0 0 10px;
       font-weight: bold;
     }
+
     hr {
       border: 0;
       height: 1px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.2);
       margin: 10px 0 20px;
     }
+
     button {
       margin: 5px 0 0;
       height: 44px;
@@ -50,17 +53,8 @@ export const Container = styled.div`
         background: ${darken(0.03, '#3b9eff')};
       }
     }
-    a {
-      color: #fff;
-      margin-top: 15px;
-      font-size: 16px;
-      opacity: 0.8;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
   }
+
   > button {
     width: 100%;
     margin: 10px 0 0;
@@ -74,17 +68,7 @@ export const Container = styled.div`
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.08, '#F64c75')};
-    }
-  }
-  a {
-    color: #fff;
-    margin-top: 15px;
-    font-size: 16px;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
+      background: ${darken(0.08, '#F64C75')};
     }
   }
 `;

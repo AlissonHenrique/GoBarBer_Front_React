@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 export const Content = styled.div`
   width: 100%;
   max-width: 315px;
@@ -31,12 +32,14 @@ export const Content = styled.div`
         color: rgba(255, 255, 255, 0.7);
       }
     }
+
     span {
-      color: #f64c75;
+      color: #fb6f91;
       align-self: flex-start;
       margin: 0 0 10px;
       font-weight: bold;
     }
+
     button {
       margin: 5px 0 0;
       height: 44px;
@@ -52,6 +55,7 @@ export const Content = styled.div`
         background: ${darken(0.03, '#3b9eff')};
       }
     }
+
     a {
       color: #fff;
       margin-top: 15px;
